@@ -21,7 +21,7 @@ var WikiSearch = function(term) {
                 var searchData = data.query.search;
                 var wikiEntry;
                 for (var i=0; i<searchData.length; i++) {
-                    wikiEntry = new WikiEntry(searchData[i].title, searchData[i].snippet);
+                    wikiEntry = new WikiEntry(searchData[i].title, searchData[i].snippet + '...');
                     wikiEntry.setUrl('https://en.wikipedia.org/wiki/' + wikiEntry.title);
                     searchImage(wikiEntry);
                 }
