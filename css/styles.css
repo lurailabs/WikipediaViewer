@@ -1,0 +1,68 @@
+/**
+ * Created by lurai on 16/2/16.
+ */
+
+body {
+    margin:             0;
+    padding:            0;
+    font-size:          62.5%;
+    font-family:        'Roboto', sans-serif;
+}
+
+header {
+    margin:             auto;
+}
+
+header h1 {
+    text-align:         center;
+    font-size:          2rem;
+}
+
+#search {
+    text-align:         center;
+    margin:             auto;
+}
+
+a {
+    text-decoration:    none;
+}
+
+#content {
+    padding:            20px;
+}
+
+.result {
+    display:            inline-block;
+    border:             solid 1px black;
+    overflow:           hidden;         /* makes divs be properly align */
+    background-color:   antiquewhite;
+    width:              300px;
+    margin:             20px;
+    padding:            10px;
+    max-height:         370px;
+    min-height:         370px;
+}
+
+.img {
+    background-size:    cover;
+    height:             200px;
+}
+
+.title {
+    heigth:             70px;
+    padding-top:        10px;
+    font-size:          1.2rem;
+}
+
+.snippet {
+    heigth:             300px;
+    padding-top:        10px;
+    font-size:          1rem;
+    color:              #636363;
+}
+
+.result:hover {
+    background-color:   #D6C6B4;
+}
+
+
