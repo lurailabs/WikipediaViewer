@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Wikipedia Viewer</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <header><h1>Wikipedia Viewer</h1></header>
+    <header>
 
-    <div id="search">
-        <input type="text" id="searchText" placeholder="term">
-        <button id="searchBtn">SEARCH</button>
-        <button id="randomBtn">RANDOM</button>
-    </div>
+        <h1>Wikipedia Viewer</h1>
+
+        <div id="search">
+            <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><i class="fa fa-random"></i></a>
+            <input type="input" id="searchText" placeholder="term...">
+            <button id="searchBtn">SEARCH</button>
+        </div>
+    </header>
+
     <div id="content"></div>
 
 
