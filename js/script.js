@@ -1,9 +1,10 @@
 /**
  * Created by lurai on 16/2/16.
  */
+
 var WikiSearch = function(term) {
-    var lang = 'en';
-    var endpoint = 'https://' + lang + '.wikipedia.org/w/api.php';
+    var lang        = 'en';
+    var endpoint    = 'https://' + lang + '.wikipedia.org/w/api.php';
 
     var searchResults = function () {
         $.ajax({
@@ -27,7 +28,7 @@ var WikiSearch = function(term) {
                 }
             },
             error: function(error) {
-                console.log('An error has occurred fetching data from Wikipedia: ' + error);
+                console.log('An error has occurred fetching data from Wikipedia');
             }
         })
     }; //search Results
@@ -37,22 +38,22 @@ var WikiSearch = function(term) {
             url: endpoint,
             dataType: 'jsonp',
             data: {
-                action: 'query',
-                titles: wikiEntry.title,
-                prop: 'pageimages',
-                format: 'json',
+                action:     'query',
+                titles:     wikiEntry.title,
+                prop:       'pageimages',
+                format:     'json',
                 pithumbsize: 300
             },
             success: function(data) {
-                var key = Object.keys(data.query.pages);
-                var thumbnail = data.query.pages[key].thumbnail;
+                var key         = Object.keys(data.query.pages);
+                var thumbnail   = data.query.pages[key].thumbnail;
                 if (thumbnail) {
                     wikiEntry.setImage(thumbnail.source);
                 }
                 displayContent(wikiEntry);
             },
             error: function(error) {
-                console.log('An error has occurred fetching images from Wikipedia: ' + error);
+                console.log('An error has occurred fetching images from Wikipedia');
             }
         })
     }; // searchImages
@@ -64,17 +65,17 @@ var WikiSearch = function(term) {
 /*************************************************************/
 
 var WikiEntry = function(title, snippet) {
-    this.title = title;
-    this.snippet = snippet;
-    this.image = '';
-    this.url = '';
+    this.title      = title;
+    this.snippet    = snippet;
+    this.image      = '';
+    this.url        = '';
 };
 
 WikiEntry.prototype.setImage = function(image) {
     this.image = image;
 };
 
-WikiEntry.prototype.setUrl = function(url){
+WikiEntry.prototype.setUrl = function(url) {
     this.url = url;
 };
 
@@ -99,11 +100,14 @@ function displayContent(wikiEntry) {
 
 $('document').ready(function () {
 
+    var $searchBtn  = $('#searchBtn');
+    var $searchText = $('#searchText');
 
-    $('#searchBtn').click(
+    $searchBtn.click(
         function() {
             $('#content').empty();
-            new WikiSearch($('#searchText').val()).searchResults();
+            new WikiSearch($searchText.val()).searchResults();
+            $searchText.val('');
         }
     );
 
@@ -112,5 +116,11 @@ $('document').ready(function () {
             window.open('http://en.wikipedia.org/wiki/Special:Random');
         }
     );
+
+    $searchText.keyup(function(event) {
+        if(event.keyCode == 13) {
+            $searchBtn.click();
+        }
+    });
 
 });
