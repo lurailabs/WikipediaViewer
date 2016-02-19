@@ -6,7 +6,7 @@ var WikiSearch = function(term) {
     var lang        = 'en';
     var endpoint    = 'https://' + lang + '.wikipedia.org/w/api.php';
 
-    var searchResults = function () {
+    var searchResults = function() {
         $.ajax({
             url: endpoint,
             dataType: 'jsonp',
@@ -50,7 +50,7 @@ var WikiSearch = function(term) {
                 if (thumbnail) {
                     wikiEntry.setImage(thumbnail.source);
                 }
-                displayContent(wikiEntry);
+                displayResults(wikiEntry);
             },
             error: function(error) {
                 console.log('An error has occurred fetching images from Wikipedia');
@@ -82,7 +82,7 @@ WikiEntry.prototype.setUrl = function(url) {
 
 /*************************************************************/
 
-function displayContent(wikiEntry) {
+function displayResults(wikiEntry) {
 
     var divStr      = '';
     if (wikiEntry.image) {
@@ -92,22 +92,22 @@ function displayContent(wikiEntry) {
                     '<div class="title">'   + wikiEntry.title   + '</div>' +
                     '<div class="snippet">' + wikiEntry.snippet + '</div>' +
                 '</div></a>';
-        $("#content").append(divStr);
+        $("#search-results").append(divStr);
     }
-} // displayContent
+} // displayResults
 
 /*************************************************************/
 
 $('document').ready(function () {
 
-    var $searchBtn  = $('#searchBtn');
-    var $searchText = $('#searchText');
+    var $searchBtn   = $('.searchBtn');
+    var $searchInput = $('.searchInput');
 
     $searchBtn.click(
         function() {
-            $('#content').empty();
-            new WikiSearch($searchText.val()).searchResults();
-            $searchText.val('');
+            $('#search-results').empty();
+            new WikiSearch($searchInput.val()).searchResults();
+            $searchInput.val('');
         }
     );
 
@@ -117,7 +117,7 @@ $('document').ready(function () {
         }
     );
 
-    $searchText.keyup(function(event) {
+    $searchInput.keyup(function(event) {
         if(event.keyCode == 13) {
             $searchBtn.click();
         }

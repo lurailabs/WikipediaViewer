@@ -38,14 +38,14 @@ header h1 {
 
 /********************* SEARCH FIELD ************************/
 
-#search {
+.search {
     position:           relative;
     width:              400px;
     text-align:         center;
     margin:             5vh auto 3vh;
 }
 
-input[type="input"] {
+input[type="text"] {
     height:                 25px;
     border:                 0;
     font-size:              1rem;
@@ -56,11 +56,11 @@ input[type="input"] {
 
 }
 
-input[type="input"]:focus {
+input[type="text"]:focus {
     outline:                none;
 }
 
-button {
+.searchBtn {
     background:             #D9853B;
     border:                 0;
     color:                  #eee;
@@ -77,11 +77,11 @@ button {
 
 }
 
-button:hover {
+.searchBtn:hover {
     background:             #cc7a39;
 }
 
-button:active {
+.searchBtn:active {
     background:             #cc7a39;
 }
 
@@ -101,7 +101,7 @@ button:active {
 
 /******************** SEARCH RESULTS **********************/
 
-#content {
+#search-results {
     padding:            20px;
     text-align:         center;
 }
@@ -118,8 +118,7 @@ button:active {
     width:              300px;
     margin:             20px;
     padding:            10px;
-    max-height:         370px;
-    min-height:         370px;
+    max-height:         400px;
 }
 
 .img {
