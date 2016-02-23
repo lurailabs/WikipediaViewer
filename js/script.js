@@ -2,8 +2,8 @@
  * Created by lurai on 16/2/16.
  */
 
-var WikiSearch = function(term) {
-    var lang        = 'en';
+var WikiSearch = function(term, lang) {
+    var lang        = lang || 'en';
     var endpoint    = 'https://' + lang + '.wikipedia.org/w/api.php';
 
     var searchResults = function() {
@@ -102,11 +102,12 @@ $('document').ready(function () {
 
     var $searchBtn   = $('.searchBtn');
     var $searchInput = $('.searchInput');
+    var $lang        = $('.lang');
 
     $searchBtn.click(
         function() {
             $('#search-results').empty();
-            new WikiSearch($searchInput.val()).searchResults();
+            new WikiSearch($searchInput.val(), $lang.val()).searchResults();
             $searchInput.val('');
         }
     );

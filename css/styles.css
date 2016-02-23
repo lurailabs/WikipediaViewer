@@ -52,11 +52,10 @@ input[type="text"] {
     margin:                 4px;
     padding:                5px 20px 5px 20px;
     width:                  250px;
-    border-radius:          17px 0 0 17px;
-
+    /*border-radius:          17px 0 0 17px;*/
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus, .lang {
     outline:                none;
 }
 
@@ -69,12 +68,10 @@ input[type="text"]:focus {
     float:                  right;
     font-weight:            bold;
     height:                 35px;
-    margin:                 4px 4px 0;
-    margin-left:            -25px;
+    margin:                 4px 4px 0 -25px;
     width:                  90px;
     outline:                none;
     border-radius:          0 17px 17px 0;
-
 }
 
 .searchBtn:hover {
@@ -95,6 +92,28 @@ input[type="text"]:focus {
 
 .fa-random:hover {
     color: #3d6764;
+}
+
+.lang {
+    position:               absolute;
+    top:                    4px;
+    left:                   -44px;
+    font-size:              1rem;
+    color:                  #3d6764;
+    background:             white;
+    border:                 0;
+    border-radius:          17px 0 0 17px;
+    padding:                8px 10px 7px 10px;
+}
+
+option::after {
+
+    content: ' ';
+    height: 5px;
+    width: 5px;
+    border-radius: 5px;
+    background-color: red;
+    display: inline-block;
 }
 
 
@@ -144,7 +163,6 @@ input[type="text"]:focus {
 }
 
 .result:hover {
-    background-color: #c1c1bf;;
+    background-color: #c1c1bf;
 }
-
 
