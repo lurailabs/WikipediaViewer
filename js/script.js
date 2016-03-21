@@ -23,7 +23,7 @@ var WikiSearch = function(term, lang) {
                 var wikiEntry;
                 for (var i=0; i<searchData.length; i++) {
                     wikiEntry = new WikiEntry(searchData[i].title, searchData[i].snippet + '...');
-                    wikiEntry.setUrl('https://en.wikipedia.org/wiki/' + wikiEntry.title);
+                    wikiEntry.setUrl('https://' + lang + '.wikipedia.org/wiki/' + wikiEntry.title);
                     searchImage(wikiEntry);
                 }
             },
@@ -114,7 +114,7 @@ $('document').ready(function () {
 
     $('#randomBtn').click(
         function() {
-            window.open('http://en.wikipedia.org/wiki/Special:Random');
+            window.open('http://' + $lang.val() + '.wikipedia.org/wiki/Special:Random', '_blank');
         }
     );
 

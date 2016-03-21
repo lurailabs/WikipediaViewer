@@ -96,6 +96,7 @@ input[type="text"]::-ms-clear {
 
 .fa-random:hover {
     color:                  #3d6764;
+    cursor:                 pointer;
 }
 
 .lang {
