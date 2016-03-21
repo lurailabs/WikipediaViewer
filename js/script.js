@@ -124,4 +124,6 @@ $('document').ready(function () {
         }
     });
 
+    new WikiSearch('Wikipedia').searchResults();
+
 });
